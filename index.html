@@ -272,7 +272,7 @@
 
     // Function to validate YouTube link
     function isValidYouTubeLink(link) {
-      return /^(https?\:\/\/)?(www\.)?(youtube\.com\/watch\?v=)[a-zA-Z0-9\-\_]{11}(&\S*)?$/.test(link);
+      return /^(https?\:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)[a-zA-Z0-9\-\_]{11}(&\S*)?$/.test(link);
     }
 
     // Function to copy link to clipboard
