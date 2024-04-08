@@ -249,7 +249,7 @@
       }
 
       // Parse video ID
-      var videoId = youtubeLink.match(/[?&]v=([^&]+)/)[1];
+      var videoId = extractVideoId(youtubeLink);
 
       // Calculate total start time in seconds
       var totalStartTime = startHours * 3600 + startMinutes * 60 + startSeconds;
@@ -270,9 +270,20 @@
       document.getElementById('videoContainer').innerHTML = '<iframe width="100%" height="315" src="' + embedLink + '" frameborder="0" allowfullscreen></iframe>';
     });
 
-    // Function to validate YouTube link
     function isValidYouTubeLink(link) {
-      return /^(https?\:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)[a-zA-Z0-9\-\_]{11}(&\S*)?$/.test(link);
+      return /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=([a-zA-Z0-9_-]+))|(youtu\.be\/([a-zA-Z0-9_-]+))/.test(link);
+    }
+
+    function extractVideoId(link) {
+      // Extract video ID from YouTube link
+      var match = link.match(/[?&]v=([^&]+)/);
+      if (match) {
+        return match[1];
+      } else {
+        // For links in the format https://youtu.be/VIDEO_ID
+        var parts = link.split('/');
+        return parts[parts.length - 1];
+      }
     }
 
     // Function to copy link to clipboard
