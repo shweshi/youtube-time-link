@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- HTML Meta Tags -->
+  <title>YouTube Time Link</title>
+  <meta name="description"
+    content="Generate custom YouTube video links with specific start times easily using YouTube Time Link. Set precise timestamps for sharing or embedding videos.">
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="https://shashi.dev/youtube-time-link/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="YouTube Time Link">
+  <meta property="og:description"
+    content="Generate custom YouTube video links with specific start times easily using YouTube Time Link. Set precise timestamps for sharing or embedding videos.">
+  <meta property="og:image" content="/youtube-time-link/ogimage.png">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="shashi.dev">
+  <meta property="twitter:url" content="https://shashi.dev/youtube-time-link/">
+  <meta name="twitter:title" content="YouTube Time Link">
+  <meta name="twitter:description"
+    content="Generate custom YouTube video links with specific start times easily using YouTube Time Link. Set precise timestamps for sharing or embedding videos.">
+  <meta name="twitter:image" content="/youtube-time-link/ogimage.png">
+
+  <style>
+    @keyframes gradient-animation {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    html,
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 10px;
+      background: linear-gradient(360deg, #050610, #0d132c);
+      background-size: 120% 120%;
+      animation: gradient-animation 12s ease infinite;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 560px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #bad7f71f;
+      border-radius: 5px;
+      background-color: #151b31;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .secondary-container {
+      max-width: 560px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 2em;
+      text-align: center;
+      color: #b2d1f3;
+    }
+
+    h3 {
+      text-align: center;
+      color: #b2d1f3;
+    }
+
+    p {
+      color: #c7d3eaa3;
+    }
+
+    input[type="text"] {
+      width: calc(100%);
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 2em;
+      border-radius: 10px;
+      box-sizing: border-box;
+      border: 1px solid #bad7f71f;
+      background: #c7d3ea0f;
+      color: #C7D3EA;
+    }
+
+    ::placeholder {
+      color: #c7d3ea8e;
+    }
+
+    input[type="number"] {
+      width: calc(33.33% - 10px);
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 2em;
+      border-radius: 10px;
+      box-sizing: border-box;
+      border: 1px solid #bad7f71f;
+      background: #c7d3ea0f;
+      color: #C7D3EA;
+    }
+
+    input[type="text"]:focus {
+      border-color: 1px solid #bad7f72b;
+      background: #c7d3ea1a;
+    }
+
+    input[type="number"]:focus {
+      border-color: 1px solid #bad7f72b;
+      background: #c7d3ea1a;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #643ef4;
+      color: #C7D3EA;
+      ;
+      border: none;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #643ef4;
+    }
+
+    #result {
+      margin-top: 20px;
+    }
+
+    #result a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    #result a:hover {
+      text-decoration: underline;
+    }
+
+    .time-inputs {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #result {
+      grid-column: span 2;
+      margin-top: 2em;
+      margin-bottom: 2em;
+      border-radius: 10px;
+    }
+
+    #result p {
+      margin-bottom: 10px;
+      color: #b2d1f3;
+    }
+
+    #result a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    #result a:hover {
+      text-decoration: underline;
+    }
+
+    .copy-button {
+      display: inline-block;
+      padding: 8px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: #20253c;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .copy-button:hover {
+      background-color: #643ef4;
+    }
+
+    .copy-button .icon {
+      margin-right: 5px;
+    }
+
+    .copy-button-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: transparent;
+      color: #c7d3eaa3;
+      width: 100%;
+      bottom: 0;
+      position: relative;
+    }
+
+    footer a {
+      color: #c7d3eaa3;
+      text-decoration: none;
+    }
+
+    header a {
+      color: #c7d3eaa3;
+      text-decoration: none;
+    }
+
+    header a:hover {
+      color: #b2d1f3;
+      text-decoration: none;
+    }
+
+    li::marker {
+      color: #c7d3eaa3;
+    }
+
+    li {
+      color: #c7d3eaa3;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h2><a href="http://shashi.dev" target="_blank">shashi.dev</a> / <a href="/">Youtube Time Link</a></h2>
+  </header>
+  <div class="container">
+    <h2>Generate YouTube Link with start time</h2>
+    <p>Paste YouTube Link</p>
+    <form id="youtubeForm">
+      <input type="text" id="youtubeLink" placeholder="YouTube Link" required>
+      <p>Select start time</p>
+      <div class="time-inputs">
+        <input type="number" id="startHours" placeholder="Hours" min="0">
+        <input type="number" id="startMinutes" placeholder="Minutes" min="0" max="59">
+        <input type="number" id="startSeconds" placeholder="Seconds" min="0" max="59">
+      </div>
+      <input type="submit" value="✨Generate">
+    </form>
+    <div id="result" class="result"></div>
+    <div id="videoContainer" class="result">
+      <!-- YouTube video will be embedded here -->
+    </div>
+  </div>
+
+  <div class="secondary-container">
+    <div style="text-align: left;">
+      <h3>About</h3>
+      <p>This tool generates URL that start YouTube video at specific time you specify. When sharing a YouTube video you want to start video at particular time, this tool lets you create link
+        with start time.</p>
+      <p>Although the YouTube web version includes this feature, it's not available in the YouTube mobile app.</p>
+    </div>
+
+    <div style="text-align: left;">
+      <h3>How to use?</h3>
+      <ul>
+        <li>Paste the YouTube Link.</li>
+        <li>Specify the start time in Hour, Minute or Seconds. You don't need to specify all of them. If you just want
+          the video to start at 30th second you can just specify the seconds.</li>
+        <li>Click on "Generate" button.</li>
+        <li>Copy the generated URL and you can share it.</li>
+        <li>You can also play the video and verify before sharing the link.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; YouTube Time Link</p>
+    <div>
+      <a href="https://twitter.com/@imSPG" target="_blank">Twitter</a>
+      <a href="https://github.com/shweshi/youtube-time-link" target="_blank">GitHub</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('youtubeForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get input values
+      var youtubeLink = document.getElementById('youtubeLink').value.trim();
+      var startHours = parseInt(document.getElementById('startHours').value.trim(), 10) || 0;
+      var startMinutes = parseInt(document.getElementById('startMinutes').value.trim(), 10) || 0;
+      var startSeconds = parseInt(document.getElementById('startSeconds').value.trim(), 10) || 0;
+
+      // Validate YouTube link
+      if (!isValidYouTubeLink(youtubeLink)) {
+        alert('Please enter a valid YouTube link.');
+        return;
+      }
+
+      // Parse video ID
+      var videoId = extractVideoId(youtubeLink);
+
+      // Calculate total start time in seconds
+      var totalStartTime = startHours * 3600 + startMinutes * 60 + startSeconds;
+
+      // Generate new YouTube link with added start time
+      var newLink = 'https://www.youtube.com/watch?v=' + videoId + '&t=' + (totalStartTime > 0 ? totalStartTime : 0) + 's';
+
+      // Generate new YouTube embed link with added start time
+      var embedLink = 'https://www.youtube.com/embed/' + videoId + '?start=' + (totalStartTime > 0 ? totalStartTime : 0);
+
+      // Display result
+      document.getElementById('result').innerHTML = '<p>Your YouTube Link:</p><div class="copy-button-container">' +
+        '<a href="' + newLink + '" target="_blank">' + newLink + '</a>' +
+        '<button class="copy-button" onclick="copyLink(\'' + newLink + '\')"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-files"><path d="M20 7h-3a2 2 0 0 1-2-2V2"></path><path d="M9 18a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h7l4 4v10a2 2 0 0 1-2 2Z"></path><path d="M3 7.6v12.8A1.6 1.6 0 0 0 4.6 22h9.8"></path></svg></span></button>' +
+        '</div>';
+
+      // Embed the video
+      document.getElementById('videoContainer').innerHTML = '<iframe width="100%" height="315" src="' + embedLink + '" frameborder="0" allowfullscreen></iframe>';
+    });
+
+    function isValidYouTubeLink(link) {
+      return /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=([a-zA-Z0-9_-]+))|(youtu\.be\/([a-zA-Z0-9_-]+))/.test(link);
+    }
+
+    function extractVideoId(link) {
+      // Extract video ID from YouTube link
+      var match = link.match(/[?&]v=([^&]+)/);
+      if (match) {
+        return match[1];
+      } else {
+        // For links in the format https://youtu.be/VIDEO_ID
+        var parts = link.split('/');
+        return parts[parts.length - 1];
+      }
+    }
+
+    // Function to copy link to clipboard
+    function copyLink(link) {
+      var tempInput = document.createElement("input");
+      tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+      tempInput.value = link;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+      alert("Link copied to clipboard!");
+    }
+  </script>
+
+</body>
+
+</html>
