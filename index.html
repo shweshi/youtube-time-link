@@ -62,10 +62,26 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
+    .secondary-container {
+      max-width: 560px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
     h2 {
       margin-top: 0;
+      margin-bottom: 2em;
       text-align: center;
       color: #b2d1f3;
+    }
+
+    h3 {
+      text-align: center;
+      color: #b2d1f3;
+    }
+
+    p {
+      color: #c7d3eaa3;
     }
 
     input[type="text"] {
@@ -81,7 +97,7 @@
     }
 
     ::placeholder {
-      color: #404c66;
+      color: #c7d3ea8e;
     }
 
     input[type="number"] {
@@ -201,26 +217,71 @@
 
     footer a {
       color: #c7d3eaa3;
+      text-decoration: none;
+    }
+
+    header a {
+      color: #c7d3eaa3;
+      text-decoration: none;
+    }
+
+    header a:hover {
+      color: #b2d1f3;
+      text-decoration: none;
+    }
+
+    li::marker {
+      color: #c7d3eaa3;
+    }
+
+    li {
+      color: #c7d3eaa3;
     }
   </style>
 </head>
 
 <body>
-
+  <header>
+    <h2><a href="http://shashi.dev" target="_blank">shashi.dev</a> / <a href="/">Youtube Time Link</a></h2>
+  </header>
   <div class="container">
-    <h2>Add Time to YouTube Link</h2>
+    <h2>Generate YouTube Link with start time</h2>
+    <p>Paste YouTube Link</p>
     <form id="youtubeForm">
-      <input type="text" id="youtubeLink" placeholder="Enter YouTube Link" required>
+      <input type="text" id="youtubeLink" placeholder="YouTube Link" required>
+      <p>Select start time</p>
       <div class="time-inputs">
         <input type="number" id="startHours" placeholder="Hours" min="0">
         <input type="number" id="startMinutes" placeholder="Minutes" min="0" max="59">
         <input type="number" id="startSeconds" placeholder="Seconds" min="0" max="59">
       </div>
-      <input type="submit" value="Add Time">
+      <input type="submit" value="✨Generate">
     </form>
     <div id="result" class="result"></div>
     <div id="videoContainer" class="result">
       <!-- YouTube video will be embedded here -->
+    </div>
+  </div>
+
+  <div class="secondary-container">
+    <div style="text-align: left;">
+      <h3>About</h3>
+      <p>This tool generates URLs that start YouTube videos at specific times you specify.</p>
+      <p>When sharing a YouTube video and you want to start video at particular time, this tool lets you create links
+        with start times.</p>
+      <p>Although the YouTube web version includes this feature, it's not available in the YouTube mobile app.</p>
+    </div>
+
+    <div style="text-align: left;">
+      <h3>How to use?</h3>
+      <ul>
+        <li>Paste the YouTube Link.</li>
+        <li>Specify the start time in Hour, Minute or Seconds. You don't need to specify all of them. If you just want
+          the video to start at 30th second you can just specify the seconds.</li>
+        <li>Click on "Generate" button.</li>
+        <li>Copy the generated URL and you can share it.</li>
+        <li>You can also play the video and verify before sharing the link.</li>
+      </ul>
     </div>
   </div>
 
